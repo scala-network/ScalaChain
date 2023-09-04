@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+<body>
+  <!-- Navigation -->
+  <%- include('./partials/nav.ejs') %>
+
+  <div class="container">
+    <%- include('./partials/search-block.ejs') %>
+
+    <div class="row small">
+      <div class="col">
+        <section>
+          <header>
+            <h5 class="c-white fat"><i class="fas fa-cube"></i> Block - <span class="fbold"><%= block_hash %></span></h5>
+          </header>
+          <article>
+            <table class="overscroll-x small">
+              <thead>
+                <tr>
+                  <th>Block Hash</th>
+                  <th>Block</th>
+                  <th>Reward</th>
+                  <th>Difficulty</th>
+                  <th>Time</th>
+                  <th>Stamp</th>
+                  <th class="t-right">TX</th>
+                </tr>
+              </thead>
+              <tbody id="txBody2">
+                <tr>
+                  <%- block_hash_html %>
+                  <td><%= block_height %></td>
+                  <td><%= block_reward %></td>
+                  <td><%= difficulty %></td>
+                  <td><%= time_ago %></td>
+                  <td><%= time_stamp %></td>
+                  <td class="t-right"><%= tx_count %></td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+          <article>
+            <table>
+              <%- inblock_txs %>
+            </table>
+          </article>
+        </section>
+      </div>
+    </div>
+
+    <div class="row push-top small push-bottom-hard">
+      <section>
+        <header>
+          <h5><i class="far fa-chart-bar"></i> Network statistics</h5>
+        </header>
+        <div class="col x1-third">
+          <article>
+            <header>
+              <h6>Network</h6>
+              <hr>
+            </header>
+            <ul class="c-grey">
+              <!-- <li>Block height&#58;<span class="right c-lighter">{{stat_block_height}}</span></li>
+              <li>Difficulty&#58;<span class="right c-lighter">{{stat_block_difficulty}}</span></li>
+              <li>Hashrate&#58;<span class="right c-lighter">{{stat_block_hashrate}}</span></li> -->
+              <li>Block height&#58;<span class="right c-lighter"><%= stat_block_height %></span></li>
+              <li>Difficulty&#58;<span class="right c-lighter"><%= stat_block_difficulty %></span></li>
+              <li>Hashrate&#58;<span class="right c-lighter"><%= stat_block_hashrate %></span></li>
+            </ul>
+          </article>
+        </div>
+        <div class="col x1-third">
+          <article>
+            <header>
+              <h6>Transactions</h6>
+              <hr>
+            </header>
+            <ul class="c-grey">
+              <li>Count&#58;<span class="right c-lighter"><%= stat_txcount %></span></li>
+              <li>Pool size&#58;<span class="right c-lighter"><%= stat_tx_pool_size %></span></li>
+              <li>Pool Size(in kb)&#58;<span class="right c-lighter"><%= tx_pool_data_size %> kb</span></li>
+            </ul>
+          </article>
+        </div>
+        <div class="col x1-third">
+          <article>
+            <header>
+              <h6>Connections</h6>
+              <hr>
+            </header>
+            <ul class="c-grey">
+                <li>Incoming connections&#58;<span class="right c-lighter"><%= stat_incom %></span></li>    
+                <li>Outgoing connections&#58;<span class="right c-lighter"><%= stat_outgo %></span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </div>
+  </div>
+  </div>
+  <%- include('./partials/footer') %>
+</body>
+</html>

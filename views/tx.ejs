@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head.ejs') %>
+  </head>
+  <body>
+    <%- include('partials/nav.ejs') %>
+
+    <div class="container">
+      <%- include('partials/search-block.ejs') %>
+      <!-- Basic -->
+      <div class="row small">
+        <div class="col">
+          <section>
+            <header>
+              <h5><i class="fas fa-search"></i> Basic Transaction Information</h5>
+            </header>
+            <article>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Transaction hash</th>
+                    <th>Mixins</th>
+                    <th class="t-right">Status</th>
+                  </tr>
+
+                </thead>
+                <tbody>
+                  <tr>
+                    <td> <%= tx_hash %></td>
+                    <td> <%= mixins %></td>
+                    <td class='t-right c-green'>
+                      <%- tx_status %>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+            </section>
+
+            <section>
+              <header>
+                <h5><i class="fa fa-sign-in-alt"></i> Inputs</h5>
+              </header>
+              <article>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Amount</th>
+                      <th>Key Image</th>
+                    </tr>
+  
+                  </thead>
+                  <tbody>
+                    <%- key_image_inputs %>
+                  </tbody>
+                </table>
+              </article>
+              </section>
+
+              <section>
+                <header>
+                  <h5><i class="fa fa-sign-out-alt"></i> Outputs</h5>
+                </header>
+                <article>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Amount</th>
+                        <th>Public Key</th>
+                      </tr>
+    
+                    </thead>
+                    <tbody>
+                      <%- key_image_outputs %>
+                    </tbody>
+                  </table>
+                </article>
+                </section>
+
+            <!-- Inputs -->
+            <section>
+              <header>
+                <h5><i class="fa fa-magic"></i> Extra Transaction Information</h5>
+              </header>
+              <article>
+                <style>
+                .tablea {
+                  width: 100%;
+                  table-layout: fixed;
+                }
+                  
+                .tablea .td {
+                  width: 50%;
+                  text-align: left;
+                  padding: 10px;
+                  
+                }
+
+                .tablea .th {
+                  width: 50%;
+                  text-align: left;
+                  padding: 10px;
+                }
+
+
+                .long-value {
+                  word-break: break-all;
+                  padding-left: 5px;
+                  text-align: justify;
+                }
+
+                </style>
+                <table class="tablea">
+                  <thead>
+                    <tr>
+                      <th>Data</th>
+                      <th>Value</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Payment ID</td>
+                      <td><%- payment_id %></td>
+                    </tr>
+                    <tr>
+                      <td>RCT Type</td>
+                      <td><%= rct_type %></td>
+                    </tr>
+                    <tr>
+                      <td>Timestamp</td>
+                      <td><%= timestamp %></td>
+                    </tr>
+                    <tr>
+                      <td>Timestamp UTC</td>
+                      <td><%= timestamp_utc %></td>
+                    </tr>
+                    <tr>
+                      <td>Transaction Fee</td>
+                      <td><%= tx_fee %></td>
+                    </tr>
+                    <tr>
+                      <td>Transaction Size</td>
+                      <td><%= tx_size %></td>
+                    </tr>
+                    <tr>
+                      <td>Transaction Version</td>
+                      <td><%= tx_version %></td>
+                    </tr>
+                    <tr>
+                      <td>Transaction Extra(tx_extra)</td>
+                      <td class="long-value"><%= tx_extra %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              </section>
+
+          </div>
+        </div>
+
+       <div class="row push-top small push-bottom-hard">
+         <section>
+           <header>
+             <h5><i class="far fa-chart-bar"></i> Network statistics</h5>
+           </header>
+           <div class="col x1-third">
+             <article>
+               <header>
+                 <h6>Network</h6>
+                 <hr>
+               </header>
+               <ul class="c-grey">
+                  <li>Block height&#58;<span class="right c-lighter"><%= stat_block_height %></span></li>
+                  <li>Difficulty&#58;<span class="right c-lighter"><%= stat_block_difficulty %></span></li>
+                  <li>Hashrate&#58;<span class="right c-lighter"><%= stat_block_hashrate %></span></li>
+               </ul>
+             </article>
+           </div>
+           <div class="col x1-third">
+             <article>
+               <header>
+                 <h6>Transactions</h6>
+                 <hr>
+               </header>
+               <ul class="c-grey">
+                  <li>Count&#58;<span class="right c-lighter"><%= stat_txcount %></span></li>
+                  <li>Pool size&#58;<span class="right c-lighter"><%= stat_tx_pool_size %></span></li>
+                  <li>Transaction size&#58;<span class="right c-lighter"><%= tx_pool_data_size %> kb</span></li>
+               </ul>
+             </article>
+           </div>
+           <div class="col x1-third">
+             <article>
+               <header>
+                 <h6>Connections</h6>
+                 <hr>
+               </header>
+               <ul class="c-grey">
+                  <li>Incoming connections&#58;<span class="right c-lighter"><%= stat_incom %></span></li>
+                  <li>Outgoing connections&#58;<span class="right c-lighter"><%= stat_outgo %></span></li>
+               </ul>
+             </article>
+           </div>
+         </section>
+       </div>
+     </div>
+    </div>
+    <%- include('./partials/footer') %>
+  </body>
+  <script src="js/app.js"></script>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "scala-chain",
+  "version": "2.0.0",
+  "description": "A simple explorer for the Scala Network",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Haku Labs",
+  "license": "BSD 3-Clause",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "node-cron": "^3.0.2"
+  }
+}

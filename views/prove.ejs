@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head.ejs') %>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <%- include('partials/nav.ejs') %>
+
+    <div class="container">
+      <div class="row">
+        <div class="push-top">
+          <section>
+            <h1>Prove Transaction using transaction key and receiver address</h1>
+            <input type="text" class="bg-black full-width" id="tx_hash_1" placeholder="Transaction Hash">
+            <input type="text" class="bg-black full-width" id="tx_key" placeholder="Transaction Key">
+            <input type="text" class="bg-black full-width" id="rec_1" placeholder="Reciever Address">
+            <input type="button" class="button bg-blue" id="methodOne" value="Check">
+          </section>
+        </div>
+      </div>
+      
+
+      <div class="row">
+        <div class="push-top">
+          <section>
+            <h1>Prove Transaction using view key(of receiver) and receiver address</h1>
+            <input type="text" class="bg-black full-width" id="tx_hash_2" placeholder="Transaction Hash">
+            <input type="text" class="bg-black full-width" id="view_key" placeholder="View Key(of receiver)">
+            <input type="text" class="bg-black full-width" id="rec_2" placeholder="Reciever Address">
+            <input type="button" class="button bg-blue" id="methodTwo" value="Check">
+          </section>
+        </div>
+      </div>
+
+
+    </div>
+    </div>
+    </div>
+    <script src="/js/app.js"></script>
+  </body>
+</html>

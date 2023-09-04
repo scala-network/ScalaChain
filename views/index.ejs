@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head.ejs') %>
+</head>
+
+<body>
+  <%- include('./partials/nav.ejs') %>
+
+  <div class="container">
+    <%- include('./partials/search-block.ejs') %>
+    
+    <div class="row small push-bottom">
+      <section>
+        <header>
+          <h5><i class="far fa-chart-bar"></i> Network statistics</h5>
+        </header>
+        <div class="col x1-third">
+          <article>
+            <header>
+              <h6>Network</h6>
+              <hr>
+            </header>
+            <ul class="c-grey">
+              <li>Block height&#58;<span class="right c-lighter"><%= block_height %></span></li>
+              <li>Difficulty&#58;<span class="right c-lighter"><%= difficulty_current %></span></li>
+              <li>Hashrate&#58;<span class="right c-lighter"><%= hashrate_current %> MH/s</span></li>
+            </ul>
+          </article>
+        </div>
+        <div class="col x1-third">
+          <article>
+            <header>
+              <h6>Transactions</h6>
+              <hr>
+            </header>
+            <ul class="c-grey">
+              <li>Count&#58;<span class="right c-lighter"><%= transaction_count %></span></li>
+              <li>Pool size&#58;<span class="right c-lighter"><%= pool_tx_count %></span></li>
+              <li>Transaction size&#58;<span class="right c-lighter"><%= tx_pool_data_size %> kb</span></li>
+            </ul>
+          </article>
+        </div>
+        <div class="col x1-third">
+          <article>
+            <header>
+              <h6>Connections</h6>
+              <hr>
+            </header>
+            <ul class="c-grey">
+              <li>Incoming connections&#58;<span class="right c-lighter"><%= incoming_conn_count %></span></li>
+              <li>Outgoing connections&#58;<span class="right c-lighter"><%= outgoing_conn_count %></span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <div class="row small push-bottom-hard">
+      <section class="push-bottom">
+        <header>
+          <h5><i class="fas fa-cube"></i> Current block</h5>
+        </header>
+        <article>
+          <table>
+            <thead>
+              <tr>
+                <th>Block hash</th>
+                <th>Block</th>
+                <th>Mining Reward</th>
+                <th>Diardi Reward</th>
+                <th>Difficulty</th>
+                <th>Time</th>
+                <th class="t-right">TX</th>
+              </tr>
+            </thead>
+            <tbody id="txBody2">
+              <tr>
+                <%- last_hash_top_html %>
+                <td> <%= last_block_height_top %> </td>
+                <td> <%= last_block_reward %> </td>
+                <td> <%= last_block_reward_diardi %> </td>
+                <td> <%= last_block_difficulty %> </td>
+                <td> <%= last_block_when %> </td>
+                <td class="t-right"> <%= last_block_txs_count %> </td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+        <article>
+          <table>
+            <%- last_blocks_transactions_html %>
+          </table>
+        </article>
+      </section>
+      <section class="push-bottom">
+        <article>
+          <header>
+            <h5><i class="fas fa-history"></i> Latest 10 blocks</h5>
+          </header>
+          <table class="small">
+            <thead>
+              <tr>
+                <th>Block hash</th>
+                <th>Block</th>
+                <th>Mining Reward</th>
+                <th>Diardi Reward</th>
+                <th>Difficulty</th>
+                <th>Time</th>
+                <th class="t-right">TX</th>
+              </tr>
+            </thead>
+            <%- prev_blocks_html %>
+          </table>
+        </article>
+      </section>
+    </div>
+
+  </div>
+  </div>
+  </div>
+
+  <%- include('./partials/footer') %>
+</body>
+</html>
