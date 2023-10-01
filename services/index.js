@@ -34,8 +34,7 @@ async function getIndexData() {
     obj.outgoing_conn_count = (networkInfo.data.outgoing_connections_count != undefined) ? networkInfo.data.outgoing_connections_count : 0;
     obj.last_hash_top = (lastBlockInfo.result.block_header.hash != undefined) ? lastBlockInfo.result.block_header.hash : 0;
     obj.last_block_height_top = (lastBlockInfo.result.block_header.height != undefined) ? lastBlockInfo.result.block_header.height : 0;
-    obj.last_block_reward = (lastBlockInfo.result.block_header.reward != undefined) ? (((((lastBlockInfo.result.block_header.reward) / 100)) * (75/100)).toFixed(2)) : 0;
-    obj.last_block_reward_diardi = (lastBlockInfo.result.block_header.reward != undefined) ? (((((lastBlockInfo.result.block_header.reward) / 100)) * (25/100)).toFixed(2)) : 0;
+    obj.last_block_reward = (lastBlockInfo.result.block_header.reward !== undefined) ? lastBlockInfo.result.block_header.reward : 0;
     obj.last_block_difficulty = (lastBlockInfo.result.block_header.difficulty != undefined) ? lastBlockInfo.result.block_header.difficulty : 0;
     obj.last_block_when = (lastBlockInfo.result.block_header.timestamp != undefined) ? await timeAgo(lastBlockInfo.result.block_header.timestamp) : 0;
     obj.last_block_txs_count = (networkInfo.data.last_block_tx_count != undefined) ? networkInfo.data.last_block_tx_count : 0;
@@ -79,10 +78,7 @@ async function getIndexData() {
                         ${current.height}
                     </td>
                     <td>
-                        ${(((current.reward) / 100) * (75/100)).toFixed(2)}
-                    </td>
-                    <td>
-                        ${(((current.reward) / 100) * (25/100)).toFixed(2)}
+                        ${(current.reward / 100).toFixed(2)}
                     </td>
                     <td>
                         ${(current.difficulty)}

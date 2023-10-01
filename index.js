@@ -34,7 +34,6 @@ app.get('/', async (req, res) => {
         last_hash_top_html: indexData.last_hash_top_html,
         last_block_height_top: indexData.last_block_height_top,
         last_block_reward: indexData.last_block_reward,
-        last_block_reward_diardi: indexData.last_block_reward_diardi,
         last_block_difficulty: indexData.last_block_difficulty,
         last_block_when: indexData.last_block_when,
         last_block_txs_count: indexData.last_block_txs_count,
